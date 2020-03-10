@@ -1,0 +1,36 @@
+<div class="container">
+  <p class="intro">
+    Algorithms are key aspect of Computer Science. As the number of
+    problems increases each passing day, so does their complexity. Today,
+    machines are capable of processing over a billion instructions per second.
+    However, the data that we have today is also of millions of giga-bytes if not
+    billions. Handling such large amount of data and processing it is a challenge
+    that most of the computer scientists face.
+
+    Using an efficient algorithm to solve a problem, is a critical task
+    that all developers and scientists have to do.
+  </p>
+
+  <p class="my-work">
+    Here, I attempt to visualize some of the algorithms that, may or may
+    not be the most efficient ones, in terms of time and/or space complexity,
+    but are important and fun to understand how they work.
+  </p>
+
+  <blockquote class="quote">
+    "Math will be fun, not when you understand it, but when you see how
+    beautiful it is."
+  </blockquote>
+
+  <div class="fractal-components">
+    <div
+      class="card" [routerLink]="component.link"
+      *ngFor="let component of algorithmsVisualizerComponents"
+    >
+      <img [src]="component.image" [alt]="component.title"
+           class="card-image">
+      <div class="separator"></div>
+      <p class="card-title">{{ component.title }}</p>
+    </div>
+  </div>
+</div>

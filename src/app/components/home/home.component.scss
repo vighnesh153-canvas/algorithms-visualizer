@@ -1,0 +1,91 @@
+.container {
+  width: 80%;
+  margin: auto;
+}
+
+.intro,
+.my-work {
+  font-size: 1rem;
+}
+
+.intro {
+  margin-top: 50px;
+}
+
+.my-work {
+  margin-top: 20px;
+}
+
+.quote {
+  margin-top: 20px;
+}
+
+.fractal-components {
+  max-width: 1040px;
+  margin: 30px auto;
+
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 250px;
+  height: 230px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+
+  border: 2px solid black;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  transition: all 0.5s;
+  cursor: pointer;
+
+  .card-image {
+    width: 230px;
+    height: 170px;
+  }
+
+  .separator {
+    width: 100%;
+    border: 1px solid black;
+  }
+
+  .card-title {
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .fractal-components {
+    width: 780px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .fractal-components {
+    width: 520px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .fractal-components {
+    width: 260px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .container {
+    width: 90%;
+  }
+}
