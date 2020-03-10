@@ -113,3 +113,23 @@ export const getSelectionSortGenerator = (object: SortingVisualizerComponent) =>
   }
   return selectionSortGenerator();
 };
+
+export const getInsertionSortGenerator = (object: SortingVisualizerComponent) => {
+  function *insertionSortGenerator() {
+    const { array } = object;
+    for (let i = 1; i < array.length; i++) {
+      for (let j = i - 1; j >= 0; j--) {
+        if (array[j + 1] < array[j]) {
+          [array[j], array[j + 1]] = [array[j + 1], array[j]];
+          object.color[j] = object.color[j + 1] = 'red';
+          object.plotArray();
+          yield;
+          object.color[j] = object.color[j + 1] = 'white';
+        }
+      }
+    }
+
+    object.plotArray();
+  }
+  return insertionSortGenerator();
+};

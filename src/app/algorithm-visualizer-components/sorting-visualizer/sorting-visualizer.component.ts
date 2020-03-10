@@ -11,7 +11,8 @@ import { Canvas } from '../../scripts/Canvas';
 import {
   getBubbleSortGenerator,
   getMergeSortGenerator,
-  getSelectionSortGenerator
+  getSelectionSortGenerator,
+  getInsertionSortGenerator
 } from './sorting-visualizer.logic';
 
 class SortAlgorithmMeta {
@@ -51,12 +52,18 @@ export class SortingVisualizerComponent
     selection: {
       function: getSelectionSortGenerator,
       timer: 10
+    },
+    insertion: {
+      function: getInsertionSortGenerator,
+      timer: 10
     }
   };
 
   @ViewChild('canvas') canvasElementRef: ElementRef<HTMLCanvasElement>;
 
   constructor() {
+    this.color = [];
+    this.array = [];
   }
 
   ngOnInit(): void {
@@ -125,6 +132,14 @@ export class SortingVisualizerComponent
     this.animationRunning = false;
     clearInterval(this.interval);
     clearInterval(this.interval);
+    this.resetColor();
+    this.plotArray();
+  }
+
+  resetColor() {
+    this.color.forEach((v, i) => {
+      this.color[i] = 'white';
+    });
   }
 
   ngOnDestroy() {
