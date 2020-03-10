@@ -1,1 +1,34 @@
-<p>sorting-visualizer works!</p>
+<div class="container">
+  <div class="title">Sorting Visualizer</div>
+  <div class="content">
+    <div class="menu left-menu">
+      <div class="item">
+        <button class="randomize-elements" (click)="randomizeArray()"
+        >Randomize Array</button>
+      </div>
+      <div class="item">
+        <label class="label">
+          <span class="sort-type-label">Algorithm</span>
+          <select name="sort-type" class="select"
+                  [(ngModel)]="selectedSortAlgorithm">
+            <option value="merge">Merge sort</option>
+            <option value="bubble">Bubble sort</option>
+            <option value="selection">Selection sort</option>
+            <option value="insertion">Insertion sort</option>
+          </select>
+        </label>
+      </div>
+    </div>
+    <div class="canvas">
+      <canvas width="500" height="300" #canvas></canvas>
+    </div>
+    <div class="menu right-menu">
+      <div class="item">
+        <button *ngIf="animationRunning === false"
+                class="start" (click)="startAnimation()">START</button>
+        <button *ngIf="animationRunning"
+                class="start" (click)="stopAnimation()">STOP</button>
+      </div>
+    </div>
+  </div>
+</div>
