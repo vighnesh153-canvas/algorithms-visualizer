@@ -89,3 +89,27 @@ export const getMergeSortGenerator = (object: SortingVisualizerComponent) => {
 
   return mergeSortGenerator(0, object.array.length - 1);
 };
+
+export const getSelectionSortGenerator = (object: SortingVisualizerComponent) => {
+  function *selectionSortGenerator() {
+    for (let i = 0; i < object.array.length; i++) {
+      let minIndex = i;
+      for (let j = i + 1; j < object.array.length; j++) {
+        const v1 = object.array[minIndex];
+        const v2 = object.array[j];
+
+        if (v2 < v1) {
+          object.color[j] = object.color[minIndex] = 'red';
+          object.plotArray();
+          yield;
+          object.color[j] = object.color[minIndex] = 'white';
+          minIndex = j;
+        }
+      }
+      [object.array[minIndex], object.array[i]] =
+        [object.array[i], object.array[minIndex]];
+    }
+    object.plotArray();
+  }
+  return selectionSortGenerator();
+};

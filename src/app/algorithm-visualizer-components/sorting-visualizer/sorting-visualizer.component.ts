@@ -10,7 +10,8 @@ import {
 import { Canvas } from '../../scripts/Canvas';
 import {
   getBubbleSortGenerator,
-  getMergeSortGenerator
+  getMergeSortGenerator,
+  getSelectionSortGenerator
 } from './sorting-visualizer.logic';
 
 class SortAlgorithmMeta {
@@ -46,6 +47,10 @@ export class SortingVisualizerComponent
     merge: {
       function: getMergeSortGenerator,
       timer: 30
+    },
+    selection: {
+      function: getSelectionSortGenerator,
+      timer: 10
     }
   };
 
