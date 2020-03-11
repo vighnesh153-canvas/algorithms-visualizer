@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  toastDurationInSeconds: 3,
   algorithmsVisualizer: {
     components: [
       {

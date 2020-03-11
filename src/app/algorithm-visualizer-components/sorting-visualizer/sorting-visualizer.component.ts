@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 
 import { Canvas } from '../../scripts/Canvas';
+import { ToastMessagesService } from '../../services/toast-messages.service';
 import {
   getBubbleSortGenerator,
   getMergeSortGenerator,
@@ -61,7 +62,7 @@ export class SortingVisualizerComponent
 
   @ViewChild('canvas') canvasElementRef: ElementRef<HTMLCanvasElement>;
 
-  constructor() {
+  constructor(private toastMessagesService: ToastMessagesService) {
     this.color = [];
     this.array = [];
   }
@@ -74,7 +75,28 @@ export class SortingVisualizerComponent
     this.randomizeArray();
   }
 
+  isArraySorted() {
+    let prev = -Infinity;
+    let isSorted = true;
+
+    this.array.forEach(value => {
+      if (value < prev) {
+        isSorted = false;
+      }
+      prev = value;
+    });
+
+    return isSorted;
+  }
+
   startAnimation() {
+    if (this.isArraySorted()) {
+      this.toastMessagesService.broadcast(
+        'Array is already sorted', 'INFO'
+      );
+      return;
+    }
+
     this.animationRunning = true;
     const generatorObject =
       this.map[this.selectedSortAlgorithm].function(this);

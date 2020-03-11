@@ -1,5 +1,6 @@
 export const environment = {
   production: true,
+  toastDurationInSeconds: 3,
   algorithmsVisualizer: {
     components: [
       {

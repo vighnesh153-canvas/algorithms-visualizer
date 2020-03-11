@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { HomeComponent } from './components/home/home.component';
 import { SortingVisualizerComponent } from './algorithm-visualizer-components/sorting-visualizer/sorting-visualizer.component';
+import { ToastMessagesComponent } from './components/toast-messages/toast-messages.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     HomeComponent,
-    SortingVisualizerComponent
+    SortingVisualizerComponent,
+    ToastMessagesComponent
   ],
   imports: [
     BrowserModule,
