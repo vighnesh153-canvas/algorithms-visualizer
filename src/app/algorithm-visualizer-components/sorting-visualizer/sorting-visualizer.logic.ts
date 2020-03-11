@@ -24,16 +24,14 @@ export const getBubbleSortGenerator = (object: SortingVisualizerComponent) => {
 
 export const getMergeSortGenerator = (object: SortingVisualizerComponent) => {
   function plotArray(array: number[],
-                     s1: number, e2: number) {
-    const tempArr = [...object.array];
-    array.forEach((value, index) => {
-      tempArr[index + s1] = value;
-    });
-    let i = array.length + s1 - 1;
-    while (i <= e2) {
-      tempArr[i] = object.array[i];
-      i++;
-    }
+                     s1: number, i: number, j: number, e1: number, e2: number) {
+    const tempArr = [
+      ...object.array.slice(0, s1),
+      ...array.slice(0, array.length),
+      ...object.array.slice(i, e1 + 1),
+      ...object.array.slice(j, object.array.length)
+    ];
+
     object.plotArray(tempArr);
   }
 
@@ -61,7 +59,7 @@ export const getMergeSortGenerator = (object: SortingVisualizerComponent) => {
         newArray.push(object.array[j++]);
       }
       object.color[i] = object.color[j] = 'red';
-      plotArray(newArray, s1, e2);
+      plotArray(newArray, s1, i, j, e1, e2);
       object.color[i] = object.color[j] = 'white';
       yield;
     }
@@ -69,7 +67,7 @@ export const getMergeSortGenerator = (object: SortingVisualizerComponent) => {
     while (i <= e1) {
       newArray.push(object.array[i++]);
       object.color[i] = 'red';
-      plotArray(newArray, s1, e2);
+      plotArray(newArray, s1, i, j, e1, e2);
       object.color[i] = 'white';
       yield;
     }
@@ -77,7 +75,7 @@ export const getMergeSortGenerator = (object: SortingVisualizerComponent) => {
     while (j <= e2) {
       newArray.push(object.array[j++]);
       object.color[j - 1] = 'red';
-      plotArray(newArray, s1, e2);
+      plotArray(newArray, s1, i, j, e1, e2);
       object.color[j - 1] = 'white';
       yield;
     }
