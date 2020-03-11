@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="title">Grid Path-Finding Visualizer</div>
+  <div class="content">
+    <div class="menu left-menu">
+      <div class="item">
+        <button class="left-menu-button" (click)="generateRandomStartAndEnd()"
+        >Random Start and End</button>
+      </div>
+      <div class="item">
+        <button class="left-menu-button" (click)="generateRandomWalls()"
+        >Random Walls</button>
+      </div>
+      <div class="item">
+        <button class="left-menu-button" (click)="resetGrid()"
+        >Reset grid</button>
+      </div>
+    </div>
+    <div class="canvas">
+      <canvas width="500" height="300" #canvas></canvas>
+    </div>
+    <div class="menu right-menu">
+      <div class="item">
+        <button *ngIf="animationRunning === false"
+                class="start" (click)="startAnimation()">START</button>
+        <button *ngIf="animationRunning"
+                class="start" (click)="stopAnimation()">STOP</button>
+      </div>
+    </div>
+  </div>
+</div>

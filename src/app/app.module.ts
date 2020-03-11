@@ -6,16 +6,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { HomeComponent } from './components/home/home.component';
-import { SortingVisualizerComponent } from './algorithm-visualizer-components/sorting-visualizer/sorting-visualizer.component';
 import { ToastMessagesComponent } from './components/toast-messages/toast-messages.component';
+
+import { SortingVisualizerComponent } from './algorithm-visualizer-components/sorting-visualizer/sorting-visualizer.component';
+import {
+  GridPathFindingVisualizerComponent
+} from './algorithm-visualizer-components/grid-path-finding-visualizer/grid-path-finding-visualizer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     HomeComponent,
+    ToastMessagesComponent,
     SortingVisualizerComponent,
-    ToastMessagesComponent
+    GridPathFindingVisualizerComponent
   ],
   imports: [
     BrowserModule,
