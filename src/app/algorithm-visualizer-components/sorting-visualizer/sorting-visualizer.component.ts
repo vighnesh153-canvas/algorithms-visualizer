@@ -52,7 +52,7 @@ export class SortingVisualizerComponent
     },
     selection: {
       function: getSelectionSortGenerator,
-      timer: 10
+      timer: 30
     },
     insertion: {
       function: getInsertionSortGenerator,
