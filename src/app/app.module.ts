@@ -12,6 +12,7 @@ import { SortingVisualizerComponent } from './algorithm-visualizer-components/so
 import {
   GridPathFindingVisualizerComponent
 } from './algorithm-visualizer-components/grid-path-finding-visualizer/grid-path-finding-visualizer.component';
+import { TreePathFindingVisualizerComponent } from './algorithm-visualizer-components/tree-path-finding-visualizer/tree-path-finding-visualizer.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {
     HomeComponent,
     ToastMessagesComponent,
     SortingVisualizerComponent,
-    GridPathFindingVisualizerComponent
+    GridPathFindingVisualizerComponent,
+    TreePathFindingVisualizerComponent
   ],
   imports: [
     BrowserModule,

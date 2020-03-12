@@ -7,13 +7,17 @@ import { SortingVisualizerComponent } from './algorithm-visualizer-components/so
 import {
   GridPathFindingVisualizerComponent
 } from './algorithm-visualizer-components/grid-path-finding-visualizer/grid-path-finding-visualizer.component';
+import {
+  TreePathFindingVisualizerComponent
+} from './algorithm-visualizer-components/tree-path-finding-visualizer/tree-path-finding-visualizer.component';
 
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'sorting-visualizer', component: SortingVisualizerComponent },
-  { path: 'grid-path-finder', component: GridPathFindingVisualizerComponent }
+  { path: 'grid-path-finder', component: GridPathFindingVisualizerComponent },
+  { path: 'tree-path-finder', component: TreePathFindingVisualizerComponent }
 ];
 
 @NgModule({

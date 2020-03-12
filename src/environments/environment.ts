@@ -16,6 +16,11 @@ export const environment = {
         title: 'Grid Path Finder',
         link: '/grid-path-finder',
         image: 'assets/images/grid-path-finder.png'
+      },
+      {
+        title: 'Tree Path Finder',
+        link: '/tree-path-finder',
+        image: 'assets/images/tree-path-finding-visualizer.png'
       }
     ]
   }
